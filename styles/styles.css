@@ -1,0 +1,810 @@
+@charset "UTF-8";
+/*--------------------------------------fuentes mobile-----------------------------------------------------*/
+/*Menu */
+header nav .menu ul li {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+/*hello..*/
+.introduccion h1 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  color: #060a24 100%;
+  letter-spacing: 0;
+  line-height: 42px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/*un podcast..*/
+.introduccion .contenedorp, .cont-cel-ori p, footer p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: #060a24;
+  letter-spacing: 0;
+  line-height: 22px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/*botones*/
+.contenedor .introduccion .btn, .contenedor .escuchar .btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  color: #060a24;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+/*episodios*/
+/*¿queres las.. (agregar tex aling center)*/
+.contenedor .episodios h2, .escuchar h2 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 42px;
+  font-weight: 200;
+}
+
+/*de donde..*/
+/*invitadas..*/
+/*algunos de nuestros...*/
+.cont-cel-ori h4, .invitadas h4, .temas h4 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  color: #060a24;
+  letter-spacing: 0;
+  line-height: 42px;
+  font-weight: 200;
+}
+
+/*iconos*/
+.temas h5 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 24px;
+  color: #060a24;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* Estilo boton */
+.contenedor .introduccion .btn:hover, .contenedor .escuchar .btn:hover {
+  background-image: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------estilos----------------------------------------------- */
+* {
+  margin: 0px;
+  border: 0px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/*---------- Empieza el header -------------*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-bottom: 29px;
+}
+
+header img {
+  padding-left: 16px;
+  padding-top: 10px;
+}
+
+header nav .menu {
+  margin-top: 10px;
+  width: 100%;
+}
+
+header nav .menu input {
+  /*checkbox transparente y en primer plano*/
+  display: block;
+  width: 18px;
+  height: 32px;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+header nav .menu span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin-bottom: 3px;
+  margin-right: 36px;
+  position: relative;
+  top: 7px;
+  background: #000;
+  z-index: 1;
+  -webkit-transform-origin: 3px 0px;
+          transform-origin: 3px 0px;
+  -webkit-transition: opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.55s ease;
+  transition: transform 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+}
+
+header nav .menu ul {
+  /*posicion absolute para que se posicione debajo del resto del header - top medida del header*/
+  width: 100%;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  overflow: hidden;
+  list-style: none;
+  background: #f2f2f2;
+  height: 0px;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+header nav .menu ul li {
+  position: relative;
+  list-style: none;
+  padding: 0px 10px;
+  padding: 16px 0px 8px 16px;
+}
+
+header nav .menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*animación del menu que se desplega*/
+header nav .menu input[type="checkbox"]:checked ~ ul {
+  height: 224px;
+  width: 100%;
+  color: #ffffff;
+  background-color: #0000ec;
+  transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+}
+
+header nav .menu span:first-child {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+header nav .menu span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+/*movimiento a cruz*/
+header nav .menu input:checked ~ span {
+  opacity: 1;
+  -webkit-transform: rotate(45deg) translate(0px, -1.3px);
+          transform: rotate(45deg) translate(0px, -1.3px);
+}
+
+header nav .menu input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+header nav .menu input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(1.7px, 0px);
+          transform: rotate(-45deg) translate(1.7px, 0px);
+}
+
+/* :hover nav */
+header nav .menu ul .hover:hover {
+  color: #00f3bb;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+header nav .menu ul .hover:active {
+  color: #060a24;
+  opacity: 56%;
+  text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    padding-bottom: 120px;
+  }
+  header img {
+    position: relative;
+    margin: 26px auto auto 100px;
+  }
+  header nav .menu {
+    width: 90%;
+    position: relative;
+    margin: 26px;
+    left: -57px;
+  }
+  header nav .menu ul {
+    position: relative;
+    top: 10px;
+    left: 42px;
+    overflow: hidden;
+    background: unset;
+    height: unset;
+  }
+  header nav .menu ul li {
+    padding: 5px 10px;
+    display: inline-block;
+    color: #060a24;
+  }
+  header nav .menu ul li a {
+    color: #060a24;
+  }
+  header nav .menu ul li a {
+    padding: unset;
+    line-height: unset;
+  }
+  header nav .menu ul li a:hover {
+    color: unset;
+  }
+  header nav .menu input {
+    display: none;
+  }
+  header nav .menu span {
+    display: none;
+  }
+}
+
+/*---------- Termina el header -------------*/
+/*---------- Comienza introducción--------- */
+.introduccion h1 {
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.introduccion h1 #world {
+  text-decoration: line-through;
+  padding-top: 0.5%;
+}
+
+.introduccion h1 .salto {
+  display: block;
+}
+
+.introduccion .contenedorp {
+  margin-left: 16px;
+  width: 90%;
+}
+
+.introduccion .contenedorp .salto {
+  display: block;
+}
+
+.introduccion .contenedorp .introdesk {
+  display: none;
+}
+
+.contenedor .introduccion .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 98%;
+  height: 48px;
+  margin-top: 36px;
+  margin-bottom: 24px;
+  background: #00f3bb;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .introduccion h1 {
+    padding-left: 200px;
+    font-size: 64px;
+    line-height: 84px;
+  }
+  .introduccion h1 .salto {
+    display: inline;
+  }
+  .introduccion h1 #pale {
+    display: inline;
+  }
+  .introduccion h1 #dot {
+    color: #0000ec;
+  }
+  .introduccion .contenedorp {
+    padding-left: 200px;
+    width: auto;
+  }
+  .contenedor .introduccion .btn {
+    width: 226px;
+    height: 56px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+    color: #060a24;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .intromobile {
+    display: none;
+  }
+  .introduccion .contenedorp .introdesk {
+    display: block;
+    margin-bottom: 56px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/*---------- Termina introducción--------- */
+/*---------- Empieza Episodios--------- */
+.contenedor .episodios {
+  width: 100%;
+  height: 1203.5px;
+}
+
+.contenedor .episodios .skew {
+  height: 1266.5px;
+  background-image: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+  -webkit-clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
+          clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
+}
+
+.contenedor .episodios h2 {
+  padding: 64px 147px 21px 16px;
+}
+
+.contenedor .episodios div iframe {
+  width: 92%;
+  height: 233px;
+  margin-bottom: 11px;
+  margin-left: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .contenedor .episodios {
+    height: 1042.6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .contenedor .episodios .skew {
+    height: 1042.6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-clip-path: polygon(0 16%, 100% 0%, 100% 84%, 0% 100%);
+            clip-path: polygon(0 16%, 100% 0%, 100% 84%, 0% 100%);
+  }
+  .contenedor .episodios .skew h2 {
+    margin: 186px auto 26px 200px;
+    padding: 0px;
+    font-size: 48px;
+  }
+  .contenedor .episodios .skew .iframe {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    position: relative;
+    padding: 0px;
+    top: -350px;
+    height: 100px;
+  }
+  .contenedor .episodios .skew .spotify {
+    width: 584px;
+    height: 232px;
+    margin-bottom: 57px;
+    margin-top: 26px;
+  }
+}
+
+/*---------- Termina Episodios--------- */
+/*---------- Empieza celular--------- */
+.cont-cel-ori {
+  width: 100%;
+  position: relative;
+  top: -33px;
+}
+
+.cont-cel-ori img {
+  width: 100%;
+  height: 519px;
+  max-width: 340px;
+}
+
+.cont-cel-ori h4 {
+  padding-left: 16px;
+}
+
+.cont-cel-ori p {
+  padding-left: 16px;
+  padding-bottom: 54px;
+}
+
+.cont-cel-ori .salto {
+  display: block;
+}
+
+.cont-cel-ori .textodesk {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .cont-cel-ori {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 473px;
+  }
+  .cont-cel-ori img {
+    padding-left: 200px;
+  }
+  .cont-cel-ori .imagen-texto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    top: -107px;
+  }
+  .cont-cel-ori .texto {
+    position: relative;
+    padding-left: 62.4px;
+    top: 135px;
+  }
+  .cont-cel-ori .textomobile {
+    display: none;
+  }
+  .cont-cel-ori .textodesk {
+    display: block;
+  }
+}
+
+/*---------- Termina celular--------- */
+/*---------- Empieza invitadas--------- */
+.invitadas {
+  width: 100%;
+}
+
+.invitadas h4 {
+  padding-left: 16px;
+  padding-bottom: 14px;
+}
+
+.invitadas h4 .salto {
+  display: block;
+}
+
+.contenedor-invitadas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.invitadas div img {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  /* ver por qué no toma el @extend */
+  .invitadas h4 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 48px;
+    color: #060a24;
+    letter-spacing: 0;
+    padding-bottom: 64px;
+    padding-left: 200px;
+  }
+  .invitadas h4 .salto {
+    display: inline-block;
+  }
+  .invitadas .contenedor-invitadas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .invitadas div img {
+    width: 33.3%;
+    height: 50%;
+    margin: 0px;
+  }
+}
+
+/*---------- Termina invitadas--------- */
+/*---------- Empieza nuestros temas--------- */
+.temas {
+  width: 100%;
+}
+
+.temas h4 {
+  margin: 48px 0px 24px 16px;
+}
+
+.temas h5 {
+  margin-bottom: 36px;
+}
+
+.temas h5 .salto {
+  display: block;
+}
+
+.temas .contenedor-temas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 800px;
+}
+
+.temas .contenedor-temas .temas1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.temas .contenedor-temas .temas1 img {
+  width: 104px;
+  height: 104px;
+  padding: 0px;
+  margin-bottom: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  .temas {
+    height: 426px;
+  }
+  .temas h4 {
+    margin: 64px auto 56px 200px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 48px;
+    color: #060a24;
+    letter-spacing: 0;
+    padding-top: 13px;
+  }
+  .temas h4 .salto {
+    display: inline;
+  }
+  .temas .contenedor-temas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    height: 426px;
+  }
+  .temas .contenedor-temas .temas1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0px;
+    width: 12%;
+    padding-bottom: 42px;
+  }
+  .temas .contenedor-temas .temas1 img {
+    display: block;
+    padding-bottom: 29px;
+    margin: 0px;
+  }
+  .temas .contenedor-temas .temas1 h5 {
+    font-weight: 800;
+  }
+  .temas .contenedor-temas .temas1 h5 .salto {
+    display: inline;
+  }
+}
+
+/*---------- Termina nuestros temas--------- */
+/*---------- Empieza escuchar episodios--------- */
+.escuchar {
+  height: 341px;
+  width: 100%;
+}
+
+.escuchar .skew2 {
+  height: 341px;
+  background-image: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+  -webkit-clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.escuchar h2 {
+  text-align: center;
+  padding: 64px 0px 36px 16px;
+}
+
+.escuchar h2 .salto {
+  display: block;
+}
+
+.contenedor .escuchar .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  height: 48px;
+  background: #00f3bb;
+  margin: auto auto 67px 16px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .escuchar {
+    height: 518px;
+  }
+  .escuchar .skew2 {
+    height: 518px;
+    -webkit-clip-path: polygon(0 26%, 100% 0%, 100% 100%, 0% 100%);
+            clip-path: polygon(0 26%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .escuchar .skew2 h2 {
+    position: relative;
+    top: 100px;
+    padding-top: 100px;
+    font-size: 48px;
+  }
+  .escuchar .skew2 h2 .salto {
+    display: inline;
+  }
+  .escuchar .skew2 .btn {
+    width: 345px;
+    height: 56px;
+    position: relative;
+    left: 38%;
+    top: 100px;
+    background: #00f3bb;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+    color: #060a24;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 0px;
+  }
+}
+
+/*---------- Termina escuchar episodios--------- */
+/*---------- Empieza Footer--------- */
+footer {
+  width: 100%;
+  height: 121px;
+}
+
+footer p {
+  text-align: center;
+  padding-bottom: 16px;
+  padding-top: 24px;
+}
+
+footer .marcas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    height: 95px;
+  }
+  .contenedor-footer {
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .contenedor-footer p {
+    margin: 36px 0px 31px 100px;
+    padding: 0px;
+  }
+  .contenedor-footer .marcas {
+    margin: 36px 100px 31px 0px;
+  }
+  .contenedor-footer .marcas a {
+    padding-left: 36px;
+    padding-bottom: 0px;
+  }
+}
+
+/*---------- Termina Footer---------*/
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,783 @@
+/*--------------------------------------fuentes mobile-----------------------------------------------------*/
+/*Menu */
+%mmenu {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+/*hello..*/
+%mh1 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 36px;
+    color: #060a24 100%;
+    letter-spacing: 0;
+    line-height: 42px;
+    font-weight: 500;
+    text-align: left;
+}
+
+/*un podcast..*/
+%mp {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    color: #060a24;
+    letter-spacing: 0;
+    line-height: 22px;
+    font-weight: 500;
+    text-align: left;
+}
+
+/*botones*/
+%mbtn {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    color: #060a24;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 500;
+}
+
+/*episodios*/
+/*¿queres las.. (agregar tex aling center)*/
+%mh2 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 36px;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: 42px;
+    font-weight: 200;
+}
+
+/*de donde..*/
+/*invitadas..*/
+/*algunos de nuestros...*/
+%mh4 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 36px;
+    color: #060a24;
+    letter-spacing: 0;
+    line-height: 42px;
+    font-weight: 200;
+}
+
+/*iconos*/
+%micon {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 24px;
+    color: #060a24;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+/* Estilo boton */
+%boton {
+    &:hover {
+        background-image: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+        color: #ffffff;
+        cursor: pointer;
+    }
+}
+/* -------------------------------------------------estilos----------------------------------------------- */
+* {
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/*---------- Empieza el header -------------*/
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 29px;
+
+    img {
+        padding-left: 16px;
+        padding-top: 10px;
+    }
+
+    nav {
+        .menu {
+            margin-top: 10px;
+            width: 100%;
+            input {
+                /*checkbox transparente y en primer plano*/
+                display: block;
+                width: 18px;
+                height: 32px;
+                opacity: 0;
+                z-index: 2;
+                position: absolute;
+            }
+
+            span {
+                display: block;
+                width: 18px;
+                height: 2px;
+                margin-bottom: 3px;
+                margin-right: 36px;
+                position: relative;
+                top: 7px;
+                background: #000;
+                z-index: 1;
+                transform-origin: 3px 0px;
+                transition: transform 0.5s ease, opacity 0.55s ease;
+            }
+
+            ul {
+                /*posicion absolute para que se posicione debajo del resto del header - top medida del header*/
+                width: 100%;
+                position: absolute;
+                top: 44px;
+                right: 0;
+                overflow: hidden;
+                list-style: none;
+                background: #f2f2f2;
+                height: 0px;
+                transition: height 0.5s ease;
+
+                li {
+                    position: relative;
+                    list-style: none;
+                    padding: 0px 10px;
+                    @extend %mmenu;
+                    padding: 16px 0px 8px 16px;
+
+                    a {
+                        text-decoration: none;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*animación del menu que se desplega*/
+header nav .menu input[type="checkbox"]:checked ~ ul {
+    height: 224px;
+    width: 100%;
+    color: #ffffff;
+    background-color: #0000ec;
+    transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    -webkit-transition: height 0.5s ease-in-out;
+}
+
+header nav .menu span:first-child {
+    transform-origin: 0% 0%;
+}
+
+header nav .menu span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/*movimiento a cruz*/
+header nav .menu input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -1.3px);
+}
+
+header nav .menu input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+header nav .menu input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(1.7px, 0px);
+}
+
+/* :hover nav */
+
+header nav .menu ul .hover {
+    &:hover {
+        color: #00f3bb;
+        text-decoration: line-through;
+        cursor: pointer;
+    }
+
+    &:active {
+        color: #060a24;
+        opacity: 56%;
+        text-decoration: line-through;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom: 120px;
+
+        img {
+            position: relative;
+            margin: 26px auto auto 100px;
+        }
+
+        nav {
+            .menu {
+                width: 90%;
+                position: relative;
+                margin: 26px;
+                left: -57px;
+
+                ul {
+                    position: relative;
+                    top: 10px;
+                    left: 42px;
+                    overflow: hidden;
+                    background: unset;
+                    height: unset;
+
+                    li {
+                        padding: 5px 10px;
+                        display: inline-block;
+                        color: #060a24;
+
+                        a {
+                            color: #060a24;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    header nav .menu ul li a {
+        padding: unset;
+        line-height: unset;
+    }
+
+    header nav .menu ul li a:hover {
+        color: unset;
+    }
+
+    header nav .menu input {
+        display: none;
+    }
+
+    header nav .menu span {
+        display: none;
+    }
+}
+
+/*---------- Termina el header -------------*/
+
+/*---------- Comienza introducción--------- */
+
+.introduccion {
+    h1 {
+        @extend %mh1;
+        margin-left: 16px;
+        margin-bottom: 16px;
+
+        #world {
+            text-decoration: line-through;
+            padding-top: 0.5%;
+        }
+        
+        .salto{
+            display: block;
+        }
+       
+    }
+
+    .contenedorp {
+        @extend %mp;
+        margin-left: 16px;
+        width: 90%;
+
+        .salto {
+            display: block;
+        }
+
+        .introdesk {
+            display: none;
+        }
+    }
+}
+
+.contenedor .introduccion .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    height: 48px;
+    margin-top: 36px;
+    margin-bottom: 24px;
+    background: #00f3bb;
+    @extend %boton;
+    text-decoration: none;
+    @extend %mbtn;
+}
+
+@media screen and (min-width: 768px) {
+    .introduccion {
+        h1 {
+            padding-left: 200px;
+            font-size: 64px;
+            line-height: 84px;
+
+            .salto{
+                display: inline;
+            }
+
+            #pale {
+                display: inline;
+            }
+
+            #dot {
+                color: #0000ec;
+            }
+        }
+
+        .contenedorp {
+            padding-left: 200px;
+            width: auto;
+        }
+    }
+
+    .contenedor .introduccion .btn {
+        width: 226px;
+        height: 56px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 18px;
+        color: #060a24;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 24px;
+        font-weight: 500;
+    }
+
+    .intromobile {
+        display: none;
+    }
+
+    .introduccion .contenedorp .introdesk {
+        display: block;
+        margin-bottom: 56px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+/*---------- Termina introducción--------- */
+
+/*---------- Empieza Episodios--------- */
+
+.contenedor .episodios {
+    width: 100%;
+    height: 1203.5px;
+
+    .skew {
+        height: 1266.5px;
+        background-image: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+        clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
+    }
+
+    h2 {
+        @extend %mh2;
+        padding: 64px 147px 21px 16px;
+    }
+}
+
+.contenedor .episodios div iframe {
+    width: 92%;
+    height: 233px;
+    margin-bottom: 11px;
+    margin-left: 11px;
+}
+
+@media screen and (min-width: 768px) {
+    .contenedor .episodios {
+        height: 1042.6px;
+        display: flex;
+
+        .skew {
+            height: 1042.6px;
+            display: flex;
+            flex-wrap: wrap;
+            clip-path: polygon(0 16%, 100% 0%, 100% 84%, 0% 100%);
+
+            h2 {
+                margin: 186px auto 26px 200px;
+                padding: 0px;
+                font-size: 48px;
+            }
+
+            .iframe {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                position: relative;
+                padding: 0px;
+                top: -350px;
+                height: 100px;
+            }
+
+            .spotify {
+                width: 584px;
+                height: 232px;
+                margin-bottom: 57px;
+                margin-top: 26px;
+            }
+        }
+    }
+}
+
+/*---------- Termina Episodios--------- */
+
+/*---------- Empieza celular--------- */
+.cont-cel-ori {
+    width: 100%;
+    position: relative;
+    top: -33px;
+
+    img {
+        width: 100%;
+        height: 519px;
+        max-width: 340px;
+    }
+
+    h4 {
+        @extend %mh4;
+        padding-left: 16px;
+    }
+
+    p {
+        @extend %mp;
+        padding-left: 16px;
+        padding-bottom: 54px;
+    }
+    .salto {
+        display: block;
+    }
+
+    .textodesk {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cont-cel-ori {
+        display: flex;
+        height: 473px;
+
+        img {
+            padding-left: 200px;
+        }
+
+        .imagen-texto {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: -107px;
+        }
+
+        .texto {
+            position: relative;
+            padding-left: 62.4px;
+            top: 135px;
+        }
+
+        .textomobile {
+            display: none;
+        }
+
+        .textodesk {
+            display: block;
+        }
+    }
+}
+
+/*---------- Termina celular--------- */
+
+/*---------- Empieza invitadas--------- */
+
+.invitadas {
+    width: 100%;
+    h4 {
+        @extend %mh4;
+        padding-left: 16px;
+        padding-bottom: 14px;
+
+        .salto {
+            display: block;
+        }
+    }
+}
+
+.contenedor-invitadas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.invitadas div img {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+}
+
+@media screen and (min-width: 768px) {
+    /* ver por qué no toma el @extend */
+
+    .invitadas {
+        h4 {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 48px;
+            color: #060a24;
+            letter-spacing: 0;
+            padding-bottom: 64px;
+            padding-left: 200px;
+
+            .salto {
+                display: inline-block;
+            }
+        }
+
+        .contenedor-invitadas {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        div img {
+            width: 33.3%;
+            height: 50%;
+            margin: 0px;
+        }
+    }
+}
+
+/*---------- Termina invitadas--------- */
+
+/*---------- Empieza nuestros temas--------- */
+
+.temas {
+    width: 100%;
+
+    h4 {
+        @extend %mh4;
+        margin: 48px 0px 24px 16px;
+    }
+
+    h5 {
+        @extend %micon;
+        margin-bottom: 36px;
+
+        .salto {
+            display: block;
+        }
+    }
+
+    .contenedor-temas {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+
+        .temas1 {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            img {
+                width: 104px;
+                height: 104px;
+                padding: 0px;
+                margin-bottom: 13px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .temas {
+        height: 426px;
+
+        h4 {
+            margin: 64px auto 56px 200px;
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 48px;
+            color: #060a24;
+            letter-spacing: 0;
+            padding-top: 13px;
+
+            .salto {
+                display: inline;
+            }
+        }
+
+        .contenedor-temas {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 100%;
+            height: 426px;
+
+            .temas1 {
+                display: flex;
+                justify-content: center;
+                margin: 0px;
+                width: 12%;
+                padding-bottom: 42px;
+
+                img {
+                    display: block;
+                    padding-bottom: 29px;
+                    margin: 0px;
+                }
+
+                h5 {
+                    font-weight: 800;
+
+                    .salto {
+                        display: inline;
+                    }
+                }
+            }
+        }
+    }
+}
+/*---------- Termina nuestros temas--------- */
+
+/*---------- Empieza escuchar episodios--------- */
+
+.escuchar {
+    height: 341px;
+    width: 100%;
+
+    .skew2 {
+        height: 341px;
+        background-image: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+        clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    h2 {
+        @extend %mh2;
+        text-align: center;
+        padding: 64px 0px 36px 16px;
+
+        .salto {
+            display: block;
+        }
+    }
+}
+
+.contenedor .escuchar .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 48px;
+    background: #00f3bb;
+    margin: auto auto 67px 16px;
+    text-decoration: none;
+    @extend %mbtn;
+    @extend %boton;
+}
+
+@media screen and (min-width: 768px) {
+    .escuchar {
+        height: 518px;
+
+        .skew2 {
+            height: 518px;
+            clip-path: polygon(0 26%, 100% 0%, 100% 100%, 0% 100%);
+
+            h2 {
+                position: relative;
+                top: 100px;
+                padding-top: 100px;
+                font-size: 48px;
+
+                .salto {
+                    display: inline;
+                }
+            }
+
+            .btn {
+                width: 345px;
+                height: 56px;
+                position: relative;
+                left: 38%;
+                top: 100px;
+                background: #00f3bb;
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 18px;
+                color: #060a24;
+                letter-spacing: 0;
+                text-align: center;
+                line-height: 24px;
+                font-weight: 500;
+                margin: 0px;
+            }
+        }
+    }
+}
+
+/*---------- Termina escuchar episodios--------- */
+
+/*---------- Empieza Footer--------- */
+
+footer {
+    width: 100%;
+    height: 121px;
+
+    p {
+        @extend %mp;
+        text-align: center;
+        padding-bottom: 16px;
+        padding-top: 24px;
+    }
+
+    .marcas {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        height: 95px;
+    }
+
+    .contenedor-footer {
+        height: 95px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        p {
+            margin: 36px 0px 31px 100px;
+            padding: 0px;
+        }
+
+        .marcas {
+            margin: 36px 100px 31px 0px;
+
+            a {
+                padding-left: 36px;
+                padding-bottom: 0px;
+            }
+        }
+    }
+}
+
+/*---------- Termina Footer---------*/
